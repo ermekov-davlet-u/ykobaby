@@ -1,0 +1,11 @@
+.slider-container {
+  display: flex; /* Используем flexbox для выравнивания */
+  justify-content: space-between; /* Распределяем пространство между слайдерами */
+  margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+@media (max-width: 1024px) {
+  .slider-container {
+    flex-direction: column;
+  }
+}

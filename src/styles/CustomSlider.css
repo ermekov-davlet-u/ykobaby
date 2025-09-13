@@ -1,0 +1,99 @@
+.swiper {
+  width: 90%;
+  /* margin-top: 100px; */
+}
+
+/* Обратите внимание, что остальные стили слайдов останутся без изменений */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #fff; */
+  text-align: center;
+  font-size: 18px;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.swiper-slide .image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Скрываем любые элементы за пределами обертки */
+  border-radius: 20px;
+}
+
+.swiper-slide img {
+  object-fit: contain; /* Сохраняем целостность изображения, не обрезая его */
+  display: block;
+}
+
+/* Обновление навигационных кнопок */
+.swiper-button-next,
+.swiper-button-prev {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+}
+
+.swiper-button-next {
+  background-image: url("../../public/next.svg");
+}
+
+.swiper-button-prev {
+  background-image: url("../../public/prev.svg");
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: ""; /* Убираем стандартный текст кнопок */
+}
+
+.slider_title {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+  text-transform: uppercase;
+  gap: 5px;
+}
+
+.slider_title_new {
+  width: 780px;
+  align-items: center;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 60px;
+  background-color: #c162ad;
+  padding: 36px;
+  border-radius: 500px;
+  font-weight: 700;
+  color: white;
+}
+.slider_label_new {
+  color: white;
+  background-color: #c162ad;
+  padding: 18px;
+  border-radius: 500px;
+}
+@media (max-width: 1268px) {
+  .slider_title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-slide img {
+    display: block;
+    width: 190px;
+    height: 190px;
+  }
+  .slider_title {
+    font-size: 18px;
+    padding: 20px;
+  }
+}

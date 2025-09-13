@@ -1,0 +1,246 @@
+.header_wrap {
+  position: relative;
+}
+.header {
+  max-width: 100%;
+  /* background: #97459a; */
+  background: linear-gradient(to bottom, #661f4f 0%, #ff88f1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 20px 20px; */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  background-color: #97459a; /* Цвет фона для меню */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-menu span {
+  padding: 5px 5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown-menu h5:hover {
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out;
+}
+.shine {
+  font-size: 48px;
+  font-weight: bold;
+  color: white; /* основной цвет текста */
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 40px white;
+  animation: flicker 2s infinite alternate;
+  background-color: #6f58a7;
+}
+
+@keyframes flicker {
+  from {
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 40px white;
+  }
+  to {
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px white, 0 0 60px white;
+  }
+}
+
+.link {
+  /* font-size: 11px; */
+  font-weight: normal;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.link.active {
+  background-color: #a393eb;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+}
+
+.line {
+  background: #00041a73;
+  height: 43px;
+  max-width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 100%;
+  z-index: 9;
+  width: 100%;
+  /* background: transparent; */
+  text-transform: uppercase;
+}
+
+.line_text {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: 500;
+}
+/* Мобильная версия */
+@media (max-width: 1168px) {
+  .links {
+    display: none; /* Скрываем ссылки на мобильных устройствах */
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 18px;
+    background: #97459a;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .header {
+    max-width: 100%;
+    background: #97459a;
+    display: flex;
+    align-items: center;
+  }
+
+  .links.active {
+    display: flex; /* Показываем ссылки, когда меню открыто */
+    padding-bottom: 10px;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 999; /* Добавляем z-index */
+  }
+
+  .hamburger .bar {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .link {
+    padding: 10px 0;
+    font-size: 18px;
+    color: white; /* Цвет текста */
+    text-align: center; /* Центрируем текст */
+  }
+
+  .line_text {
+    display: none;
+  }
+}
+
+@media (max-width: 1168px) {
+  .header {
+    gap: 0;
+    justify-content: space-between;
+  }
+  .logo img {
+    width: 100px;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 999; /* Добавляем z-index */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+  }
+}
+
+@media (max-width: 468px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 999; /* Добавляем z-index */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+  }
+
+  /* Добавим модификацию для активного состояния */
+  .hamburger.active {
+    transform: translate(-180px); /* Сдвиг гамбургера вправо и вверх */
+  }
+}
+
+@media (max-width: 668px) {
+  .header {
+    gap: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 375px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 999; /* Добавляем z-index */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+  }
+
+  /* Добавим модификацию для активного состояния */
+  .hamburger.active {
+    transform: translate(-153px); /* Сдвиг гамбургера вправо и вверх */
+  }
+}
+
+@media (max-width: 320px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 999; /* Добавляем z-index */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+  }
+
+  /* Добавим модификацию для активного состояния */
+  .hamburger.active {
+    transform: translate(-120px); /* Сдвиг гамбургера вправо и вверх */
+  }
+}

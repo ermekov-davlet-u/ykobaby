@@ -1,0 +1,45 @@
+.btn1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 83.01px;
+  width: 400px;
+  background: #cc3433;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 16.28px;
+  border: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn1:hover {
+  background: #551817 !important;
+  color: #cc3433 !important;
+  transform: scale(1); /* Немного увеличиваем кнопку при наведении */
+}
+
+.btn1:disabled {
+  background-color: rgba(128, 128, 128, 0.5); /* Серый полупрозрачный цвет */
+  color: #ffffff; /* Белый текст */
+  cursor: pointer; /* Изменяем курсор на "запрещено" */
+  opacity: 0.6; /* Слегка уменьшаем непрозрачность */
+}
+
+.btn1:active {
+  background: #ffffff !important;
+  color: #cc3433 !important;
+  border: 1px solid #bbbb;
+  transform: scale(
+    0.96
+  ); /* Уменьшаем кнопку при нажатии для визуальной отдачи */
+}
+
+@media (max-width: 768px) {
+  .btn1 {
+    width: 200px;
+    font-size: 12px;
+    height: 40px;
+  }
+}

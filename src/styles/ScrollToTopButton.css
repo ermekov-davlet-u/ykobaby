@@ -1,0 +1,70 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.scroll-button {
+  background-color: #cc3433;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  transition: opacity 0.3s;
+}
+
+.scroll-button:hover {
+  opacity: 0.8;
+}
+.phone {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #97459a;
+  border-radius: 14px;
+}
+
+.tg {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #97459a;
+  border-radius: 14px;
+}
+
+.phone img {
+  width: 50px; /* Укажи размер для изображения телефона */
+  height: auto;
+  /* animation: rotatePhone 5s linear infinite;  */
+}
+
+@media (max-width: 768px) {
+  .phone img {
+    width: 25px;
+  }
+}
+
+@keyframes rotatePhone {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

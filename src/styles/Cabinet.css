@@ -1,0 +1,88 @@
+/* Общий контейнер */
+.cabinet-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Заголовки */
+h1,
+h2 {
+  color: rgb(100, 100, 100);
+}
+
+/* Стили для таблицы */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.user-table th {
+  /* background-color: #4caf50; */
+  color: white;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-table tr:hover {
+  background-color: #ddd;
+}
+
+/* Стили для пагинации */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  list-style: none;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #97459a;
+  border: 1px solid #ddd;
+}
+
+.pagination li.active a {
+  background-color: #97459a;
+  color: white;
+}
+
+.pagination li a:hover {
+  background-color: #ddd;
+}
+
+/* Медиа-запрос для мобильной версии */
+@media (max-width: 425px) {
+  .pagination li a {
+    padding: 5px 5px; /* Уменьшаем размер кнопок */
+    font-size: 0.8rem; /* Уменьшаем размер шрифта */
+  }
+
+  .pagination li {
+    margin: 0 2px; /* Уменьшаем отступы между кнопками */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-table th,
+  .user-table td {
+    border: 1px solid #ddd;
+    padding: 2px;
+    font-size: 0.5rem; /* Уменьшаем размер шрифта */
+  }
+}
