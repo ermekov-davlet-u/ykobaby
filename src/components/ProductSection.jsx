@@ -1,7 +1,6 @@
-import "../styles/ProductSection.css";
+import { useTranslation } from "react-i18next";
 import product from "../../public/allProd.png";
 import product2 from "../../public/50god.png";
-import sakura from "../../public/Sakura-1.png";
 import product3 from "../../public/zx3.png";
 import product4 from "../../public/money.png";
 import product5 from "../../public/whitePhotoroom (6).png";
@@ -10,154 +9,121 @@ import product7 from "../../public/phone.png";
 import product8 from "../../public/lg tv.png";
 import product9 from "../../public/dyson.png";
 
-import { useTranslation } from "react-i18next";
-import { useEffect, useRef, useState } from "react";
+const products = [
+  { img: product, textKey: "xz31" },
+  { img: product2, textKey: "xz32" },
+  { img: product3, textKey: "xz33" },
+  { img: product4, textKey: "xz34" },
+  { img: product5, textKey: "xz35" },
+  { img: product6, textKey: "xzx36" },
+  { img: product7, textKey: "xz35" },
+  { img: product8, textKey: "xz35" },
+  { img: product9, textKey: "xz35" },
+];
 
-const ProductSection = () => {
+const ProductShowcaseGrid = () => {
   const { t } = useTranslation();
-  const [withBg, setWithBg] = useState(false);
-  const blockRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setWithBg(true); // включаем фон
-        }
-      },
-      {
-        root: null,
-        threshold: 0.5, // половина блока видна
-      }
-    );
-
-    if (blockRef.current) {
-      observer.observe(blockRef.current);
-    }
-
-    return () => {
-      if (blockRef.current) observer.unobserve(blockRef.current);
-    };
-  }, []);
 
   return (
-    <div
-      ref={blockRef}
-      id="2"
-      className={`wrap_block_4 ${withBg ? "with-bg" : "no-bg"}`}
+    <section
+      style={{
+        background: "rgba(255,255,255,0.18)",
+        backdropFilter: "blur(12px)",
+        borderRadius: "32px",
+        boxShadow: "0 8px 40px 0 rgba(99,102,241,0.18)",
+        border: "1.5px solid rgba(99,102,241,0.10)",
+        margin: "32px 0",
+        padding: "48px 0 32px 0",
+      }}
     >
-      <span
-        className="wrap_block_4_title"
-        dangerouslySetInnerHTML={{ __html: t("xz10") }}
-      ></span>
-
-      <div className="wrap_block_4_wrap">
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img src={product} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz31")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img src={product2} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz32")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img src={product3} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz33")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img className="block_img" src={product4} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz34")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img className="imgDD" src={product5} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz35")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img className="imgDD" src={product6} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xzx36")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img className="imgDD" src={product7} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz35")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img className="imgDD" src={product8} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz35")}</span>
-        </div>
-
-        <div className="wrap_block_wrap">
-          <div className="wrap_block_img">
-            <img className="imgDD" src={product9} alt="" />
-          </div>
-          <div className="wrap_border"></div>
-          <span className="wrap_block_p">{t("xz35")}</span>
-        </div>
-      </div>
-
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            background: "#0f1551",
-            color: "white",
-            fontWeight: 700,
-            fontSize: "2rem",
-          }}
-        >
-          <div className="shine" style={{ padding: 14 }}>
-            5 Автомобилей
-          </div>
-          <div style={{ fontSize: "36px", padding: 24 }}>KIA MORNING</div>
-        </div>
-        <div style={{ maxWidth: "50%" }}>
-          <img src="/public/car14.png" alt="" style={{ maxWidth: "100%" }} />
-        </div>
-      </div> */}
-
-      <div className="wrap_block_warning_block">
+      <style>{`
+        .psg-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+        .psg-title {
+          font-size: 1.4rem;
+          display: block;
+          font-weight: 800;
+          color: #ffffffff;
+          // margin-bottom: 36px;
+          padding: 28px 0;
+          text-align: center;
+          letter-spacing: 0.01em;
+          text-shadow: 0 2px 16px rgba(99,102,241,0.10);
+        }
+        .psg-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 36px;
+        }
+        .psg-card {
+          background: rgba(255,255,255,0.85);
+          border-radius: 22px;
+          box-shadow: 0 4px 24px rgba(99,102,241,0.10);
+          padding: 26px 18px 22px 18px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1.5px solid rgba(99,102,241,0.08);
+          backdrop-filter: blur(2px);
+          transition: box-shadow 0.3s, transform 0.3s;
+          cursor: pointer;
+        }
+        .psg-card:hover {
+          box-shadow: 0 8px 32px rgba(99,102,241,0.18);
+          transform: scale(1.06) rotate(-1deg);
+          background: rgba(255,255,255,0.97);
+        }
+        .psg-card-img {
+          width: 100%;
+          max-width: 140px;
+          height: 120px;
+          object-fit: contain;
+          border-radius: 16px;
+          margin-bottom: 18px;
+          background: linear-gradient(120deg,#f1f5f9 60%,#e0e7ff 100%);
+          box-shadow: 0 2px 8px rgba(99,102,241,0.06);
+        }
+        .psg-card-text {
+          color: #3730a3;
+          font-size: 1.13rem;
+          font-weight: 600;
+          margin-top: 10px;
+          text-shadow: 0 1px 8px rgba(99,102,241,0.06);
+        }
+        @media (max-width: 1100px) {
+          .psg-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 800px) {
+          .psg-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+          .psg-title { font-size: 1.3rem; margin-bottom: 18px; }
+          .psg-grid { grid-template-columns: 1fr; gap: 18px; }
+          .psg-card { padding: 10px 4px 10px 4px; }
+          .psg-card-img { max-width: 90px; height: 70px; }
+        }
+      `}</style>
+      <div className="psg-container">
+        {/* <div className="psg-title">{t("xz10")}</div> */}
         <span
-          className="wrap_block_warning"
-          dangerouslySetInnerHTML={{ __html: t("xz11") }}
+          className="psg-title"
+          dangerouslySetInnerHTML={{ __html: t("xz10") }}
         ></span>
+        <div className="psg-grid">
+          {products.map((prod, idx) => (
+            <div className="psg-card" key={idx}>
+              <img src={prod.img} alt="" className="psg-card-img" />
+              <div className="psg-card-text">{t(prod.textKey)}</div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ProductSection;
+export default ProductShowcaseGrid;

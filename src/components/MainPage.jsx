@@ -32,25 +32,22 @@ function MainPage() {
   // Отслеживаем скролл
   useEffect(() => {
     const handleScroll = () => {
-      // Очищаем таймер остановки скролла
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
 
       const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
+      const vh = window.innerHeight;
 
-      // Значительный скролл → больше половины экрана
-      if (scrollY > viewportHeight / 2) {
-        setShowVideo(true);
-      }
+      // Появление видео при значительном скролле (> 50% viewport)
+      if (scrollY > vh / 2) setShowVideo(true);
 
-      // Меняем видео на второе, если скролл > 200vh
-      if (scrollY >= viewportHeight * 2) {
+      // Меняем видео на второе после 200vh
+      if (scrollY >= vh * 2) {
         setCurrentVideo("severFon.mp4");
       } else {
-        setCurrentVideo("mainFon.mp4");
+        setCurrentVideo("severFon.mp4");
       }
 
-      // Таймер: если скролл остановился → скрываем видео через 800ms
+      // Скрытие видео через 800ms после остановки скролла
       scrollTimeoutRef.current = setTimeout(() => {
         setShowVideo(false);
       }, 800);
@@ -63,7 +60,7 @@ function MainPage() {
     };
   }, []);
 
-  // Авторизация и куки
+  // Работа с куками и модалками
   useEffect(() => {
     const savedPhone = Cookies.get("userPhone");
     const promo = new URLSearchParams(window.location.search).get("promo_code");
@@ -119,10 +116,12 @@ function MainPage() {
         loop
         muted
         playsInline
+        key={currentVideo} // чтобы React пересоздал видео при смене
       >
         <source src={`../../public/${currentVideo}`} type="video/mp4" />
       </video>
 
+      {/* Контент */}
       <Header onLogout={handleLogout} openAuthModal={openAuthModal} />
       <Main openAuthModal={openAuthModal} />
       <ProductSection />
