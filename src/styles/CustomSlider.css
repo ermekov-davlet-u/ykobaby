@@ -67,22 +67,26 @@
   max-width: calc(100% - 24px);
   margin: 0 auto;
   text-align: center;
-  margin-top: 60px;
+  /* margin-top: 60px; */
   background-color: #c162ad;
   padding: 36px;
   border-radius: 500px;
   font-weight: 700;
   color: white;
+  font-size: 1.2rem !important;
 }
 .slider_label_new {
   color: white;
   background-color: #c162ad;
   padding: 18px;
   border-radius: 500px;
+  font-size: .8rem;
 }
 @media (max-width: 1268px) {
   .slider_title {
-    font-size: 24px;
+    font-size: 16px !important;
+    padding: 12px;
+    font-weight: 500;
   }
 }
 
@@ -93,7 +97,7 @@
     height: 190px;
   }
   .slider_title {
-    font-size: 18px;
+    font-size: 14px !important;
     padding: 20px;
   }
 }

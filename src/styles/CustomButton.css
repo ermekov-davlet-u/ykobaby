@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  height: 83.01px;
-  width: 400px;
+  padding: 18px 24px;
+  /* height: 83.01px; */
+  /* width: 400px; */
   background: #cc3433;
   color: white;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 1rem;
   border-radius: 16.28px;
   border: none;
   transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;

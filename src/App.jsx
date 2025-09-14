@@ -4,6 +4,7 @@ import MainPage from "./components/MainPage";
 
 import "./App.css";
 import CabinetPage from "./components/CabinetPage";
+import "./styles/Header.css";
 
 function App() {
   return (

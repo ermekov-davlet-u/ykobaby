@@ -1,7 +1,15 @@
 .slider-container {
-  display: flex; /* Используем flexbox для выравнивания */
-  justify-content: space-between; /* Распределяем пространство между слайдерами */
-  margin: 20px 0; /* Отступы сверху и снизу */
+  display: flex;
+  /* Используем flexbox для выравнивания */
+  justify-content: space-between;
+  /* Распределяем пространство между слайдерами */
+  padding: 20px 0;
+}
+
+.slider-wrap {
+  /* background-image: url(../../public/fon2.png); */
+  background-size: cover;
+  padding: 6vw;
 }
 
 @media (max-width: 1024px) {

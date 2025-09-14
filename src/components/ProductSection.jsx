@@ -11,146 +11,152 @@ import product8 from "../../public/lg tv.png";
 import product9 from "../../public/dyson.png";
 
 import { useTranslation } from "react-i18next";
+import { useEffect, useRef, useState } from "react";
 
 const ProductSection = () => {
   const { t } = useTranslation();
+  const [withBg, setWithBg] = useState(false);
+  const blockRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setWithBg(true); // включаем фон
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5, // половина блока видна
+      }
+    );
+
+    if (blockRef.current) {
+      observer.observe(blockRef.current);
+    }
+
+    return () => {
+      if (blockRef.current) observer.unobserve(blockRef.current);
+    };
+  }, []);
 
   return (
-    <>
-      <div id="2" className="wrap_block_4">
-        {/* <div className="sakura11">
-          <img src={sakura} alt="" />
-        </div> */}
-        <span
-          className="wrap_block_4_title"
-          dangerouslySetInnerHTML={{ __html: t("xz10") }}
-        ></span>
-        <div className="wrap_block_4_wrap">
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img src={product} alt="" />
-            </div>
-            <div className="wrap_border"></div>
+    <div
+      ref={blockRef}
+      id="2"
+      className={`wrap_block_4 ${withBg ? "with-bg" : "no-bg"}`}
+    >
+      <span
+        className="wrap_block_4_title"
+        dangerouslySetInnerHTML={{ __html: t("xz10") }}
+      ></span>
 
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz26")}</b> <br /> */}
-              {t("xz31")}
-            </span>
+      <div className="wrap_block_4_wrap">
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img src={product} alt="" />
           </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img src={product2} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz27")}</b> <br /> */}
-              {t("xz32")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img src={product3} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz28")}</b> <br /> */}
-              {t("xz33")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img className="block_img" src={product4} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz29")}</b> <br /> */}
-              {t("xz34")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img className="imgDD" src={product5} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz30")}</b> <br /> */}
-              {t("xz35")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img className="imgDD" src={product6} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz30")}</b> <br /> */}
-              {t("xzx36")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img className="imgDD" src={product7} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz30")}</b> <br /> */}
-              {t("xz35")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img className="imgDD" src={product8} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz30")}</b> <br /> */}
-              {t("xz35")}
-            </span>
-          </div>
-          <div className="wrap_block_wrap">
-            <div className="wrap_block_img">
-              <img className="imgDD" src={product9} alt="" />
-            </div>
-            <div className="wrap_border"></div>
-            <span className="wrap_block_p">
-              {/* <b className="wrap_block_b">{t("xz30")}</b> <br /> */}
-              {t("xz35")}
-            </span>
-          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz31")}</span>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              background: "#0f1551",
-              color: "white",
-              fontWeight: 700,
-              fontSize: "2rem",
-            }}
-          >
-            <div class="shine" style={{ padding: 14 }}>
-              5 Автомобилей
-            </div>
-            <div style={{ fontSize: "36px", padding: 24 }}>KIA MORNING</div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img src={product2} alt="" />
           </div>
-          <div style={{ maxWidth: "50%" }}>
-            <img src="/public/car14.png" alt="" style={{ maxWidth: "100%" }} />
-          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz32")}</span>
         </div>
-        <div className="wrap_block_warning_block">
-          {/* Используем dangerouslySetInnerHTML для корректного отображения HTML в переводе */}
-          <span
-            className="wrap_block_warning"
-            dangerouslySetInnerHTML={{ __html: t("xz11") }}
-          ></span>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img src={product3} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz33")}</span>
+        </div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img className="block_img" src={product4} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz34")}</span>
+        </div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img className="imgDD" src={product5} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz35")}</span>
+        </div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img className="imgDD" src={product6} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xzx36")}</span>
+        </div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img className="imgDD" src={product7} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz35")}</span>
+        </div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img className="imgDD" src={product8} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz35")}</span>
+        </div>
+
+        <div className="wrap_block_wrap">
+          <div className="wrap_block_img">
+            <img className="imgDD" src={product9} alt="" />
+          </div>
+          <div className="wrap_border"></div>
+          <span className="wrap_block_p">{t("xz35")}</span>
         </div>
       </div>
-    </>
+
+      {/* <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            background: "#0f1551",
+            color: "white",
+            fontWeight: 700,
+            fontSize: "2rem",
+          }}
+        >
+          <div className="shine" style={{ padding: 14 }}>
+            5 Автомобилей
+          </div>
+          <div style={{ fontSize: "36px", padding: 24 }}>KIA MORNING</div>
+        </div>
+        <div style={{ maxWidth: "50%" }}>
+          <img src="/public/car14.png" alt="" style={{ maxWidth: "100%" }} />
+        </div>
+      </div> */}
+
+      <div className="wrap_block_warning_block">
+        <span
+          className="wrap_block_warning"
+          dangerouslySetInnerHTML={{ __html: t("xz11") }}
+        ></span>
+      </div>
+    </div>
   );
 };
 

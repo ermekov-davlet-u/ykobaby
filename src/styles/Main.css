@@ -3,6 +3,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: hidden;
+  padding-top: 108px;
+  /* margin-top: 68px; */
 }
 
 .volna {
@@ -44,6 +46,8 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  /* background-image: url(../../public/fon2.png); */
+  /* background-size: cover;  */
 }
 
 /* .block_wrap::before {
@@ -99,12 +103,12 @@
   gap: 70px;
 }
 .btn1 {
-  margin-top: 60px;
+  margin-top: 1rem;
 }
 
 .block_2_title {
   color: #ffffff;
-  font-size: 24.85px;
+  font-size: 1.1rem;
   font-weight: bold;
   /* padding: 20px; */
 }
@@ -114,7 +118,7 @@
   /* max-width: 750px; */
   width: 39vw;
   z-index: 9;
-  transform: translateX(181px);
+  transform: translateX(10vw);
 }
 
 .block_1_img2 {
@@ -123,13 +127,13 @@
 }
 @keyframes changeCars {
   0% {
-    content: url("../../public/cars2.png");
+    content: url("../../public/cars.png");
   }
   50% {
     content: url("../../public/cars.png");
   }
   100% {
-    content: url("../../public/cars2.png");
+    content: url("../../public/cars.png");
   }
 }
 
@@ -160,7 +164,7 @@
 }
 
 .block_2_p {
-  font-size: 24px;
+  font-size: 1rem;
   color: #ffffff;
   font-weight: 600;
   padding-right: 24px;
@@ -381,12 +385,19 @@
   }
 }
 
+@media (max-width: 1168px) {
+  .block_wrap {
+    padding: 8px;
+  }
+}
+
 @media (max-width: 1068px) {
   .block_wrap {
     flex-direction: column-reverse;
     align-items: center;
     gap: 0;
     padding-left: 20px;
+    padding: 8px;
   }
 
   .block_3_xz {
@@ -620,6 +631,21 @@
   .block_1_img2 {
     max-width: 400px;
     margin-top: 50px;
+  }
+}
+
+@media (max-width: 1168px) {
+  .hh {
+    font-size: 24px;
+  }
+
+  .img_title_logo {
+    width: 30vw;
+    height: 90px;
+    margin-bottom: 12px;
+  }
+  .block_p1{
+    font-size: 1rem;
   }
 }
 

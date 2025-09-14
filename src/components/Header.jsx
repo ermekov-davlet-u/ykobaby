@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import "../styles/Header.css";
 import baby from "../../public/logo.png";
 import FAQModal from "./FAQModal";
 import WinnersModal from "./WinnersModal";
